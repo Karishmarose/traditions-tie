@@ -1,0 +1,83 @@
+<section *ngIf="events$ | async as events">
+  <div *ngIf="events && events.length > 0; else emptyData" class="event-box">
+    <div class="event-item" *ngFor="let event of events let i=index ">
+      <mat-card class="event-item-link" [ngClass]="{'expanded': expandedStates[i]}">
+        <mat-card-content>
+          <h3 class="event-item-title">{{ event.event_type }}</h3>
+          <p class="title">{{ event.location }}</p>
+          <p class="description">{{ event.guest_count }}</p>
+          <p class="date">{{ event.event_date | date }}</p>
+          <div class="buttons">
+            <button *ngIf="!expandedStates[i]" mat-raised-button color="basic" (click)="toggleExpansion(i)">View
+              More</button>
+            <button *ngIf="expandedStates[i]" mat-raised-button color="basic" (click)="toggleExpansion(i)">View
+              Less</button>
+
+            <button mat-raised-button color="basic" (click)="viewCheckList(event._id)">Check List</button>
+            <button mat-raised-button color="basic" (click)="viewGuestList(event._id)">Guest List</button>
+
+          </div>
+
+          <div class="expanded-content" *ngIf="expandedStates[i]">
+            
+            <div>
+              <p class="expanded-content-heading">Coordinator</p>
+              <div class="details">
+                <p>Name :</p>
+                <p>{{event.coordinatorDetails.first_name+" "}}{{event.coordinatorDetails.last_name}}</p>
+              </div>
+
+              <div class="details">
+                <p>Mobile :</p>
+                <p>{{event.coordinatorDetails.mobile}}</p>
+              </div>
+
+              <div class="details">
+                <p>Department :</p>
+                <p>{{event.coordinatorDetails.department}}</p>
+              </div>
+
+              <mat-divider class="divider"></mat-divider>
+            </div>
+
+            <div *ngIf="event.themeDetails!==null&&event.themeDetails!==undefined">
+              <p class="expanded-content-heading">Theme</p>
+              <div class="details">
+                <p>Name :</p>
+                <p>{{event.themeDetails.theme_name}}</p>
+              </div>
+
+
+              <div class="details">
+                <p>Description :</p>
+                <p>{{event.themeDetails.description}}</p>
+              </div>
+
+              <mat-divider class="divider"></mat-divider>
+            </div>
+
+
+            <div *ngIf="event.vendors&&event.vendors.length>0">
+
+              <p class="expanded-content-heading">Vendors</p>
+              <div *ngFor="let vendor of event.vendors">
+                <div class="details">
+                  <p>{{vendor.vendor_type}}</p>
+                  <p>{{vendor.vendor_name}}</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</section>
+
+<ng-template #emptyData>
+  <div class="emptyData">
+    <h3>No Events</h3>
+  </div>
+</ng-template>

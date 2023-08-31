@@ -1,0 +1,69 @@
+<mat-toolbar class="mat-toolbar">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="app-logo">
+        <!-- ! Logo should be svg or shoud as srcset -->
+        <div class="logo">TraditionsTie</div>
+      </div>
+      <div class="toolbar-navigation">
+        <ng-container *ngIf="currentUser$ | async as user;else noUser">
+          <a mat-icon-button [routerLink]="['home']" matTooltip="Home" color="primart" class="navigation-key">
+            Home
+          </a>
+
+          <a *ngIf="user.isPaid" mat-icon-button [matMenuTriggerFor]="serviceMenu" matTooltip="Services" color="primart"
+            class="navigation-key">
+            Services
+          </a>
+
+          <a mat-icon-button [routerLink]="['about-us']" matTooltip="About US" color="primart" class="navigation-key">
+            About Us
+          </a>
+
+          <!-- USER MENU -->
+
+          <button matTooltip="User Menu" mat-icon-button class="user-mat-button" [matMenuTriggerFor]="menu"
+            aria-label="User Menu">
+            <mat-icon class="white-icon">account_circle</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="onHandleRouter('profile')">
+              <mat-icon>person</mat-icon>
+              <span>{{ user?.user_name }}</span>
+            </button>
+            <button mat-menu-item (click)="logOut()">
+              <mat-icon color="warn">logout</mat-icon>
+              <span>Logout</span>
+            </button>
+          </mat-menu>
+
+          <mat-menu #serviceMenu="matMenu">
+            <button mat-menu-item (click)="onHandleRouter('add-event')">
+              Add Event
+            </button>
+
+            <button mat-menu-item (click)="onHandleRouter('event-details')">
+              Event List
+            </button>
+          </mat-menu>
+        </ng-container>
+        <ng-template #noUser>
+          <button matTooltip="User Menu" mat-icon-button [matMenuTriggerFor]="menu" aria-label="User Menu">
+            <mat-icon>account_circle</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item disabled>
+              <mat-icon>no_accounts</mat-icon>
+              <span>Deleted User</span>
+            </button>
+            <button mat-menu-item (click)="logOut()">
+              <mat-icon color="warn">logout</mat-icon>
+              <span>Logout</span>
+            </button>
+          </mat-menu>
+        </ng-template>
+
+      </div>
+    </div>
+  </div>
+</mat-toolbar>

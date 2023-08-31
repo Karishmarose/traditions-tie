@@ -1,0 +1,93 @@
+<button mat-icon-button (click)="closeDialog()">
+    <mat-icon>close</mat-icon>
+</button>
+
+<mat-dialog-content *ngIf="recommendation$|async as recommendation" id="ignismyModal" class="modal-content">
+    <div class="recommendation-box">
+        <h2>
+            Recommendations
+        </h2>
+        <div class="recommendation-group" *ngIf="recommendation.food_recommendations.length>0">
+            <h3>
+                Food
+            </h3>
+            <div *ngFor=" let item of recommendation.food_recommendations">
+                <div class="recommendation-item">
+                    <p>Food Name</p>
+                    <p>{{item.food_name}}</p>
+                </div>
+
+                <div class="recommendation-item">
+                    <p>Description</p>
+                    <p>{{item.description}}</p>
+                </div>
+
+                <div class="recommendation-item">
+                    <p>Cuisine Type</p>
+                    <p>{{item.cuisine_type}}</p>
+                </div>
+
+                <div class="recommendation-item">
+                    <p>Cultural Orgin</p>
+                    <p>{{item.cultural_origin}}</p>
+                </div>
+
+                <mat-divider></mat-divider>
+            </div>
+        </div>
+
+        <div class="recommendation-group" *ngIf="recommendation.cultural_traditions.length>0">
+            <h3>
+                Cultural Traditions
+            </h3>
+            <div *ngFor=" let item of recommendation.cultural_traditions">
+                <div class="recommendation-item">
+                    <p>Tradition Name</p>
+                    <p>{{item.tradition_name}}</p>
+                </div>
+
+                <div class="recommendation-item">
+                    <p>Description</p>
+                    <p>{{item.description}}</p>
+                </div>
+
+                <div class="recommendation-item">
+                    <p>Religion</p>
+                    <p>{{item.religion}}</p>
+                </div>
+
+                <div class="recommendation-item">
+                    <p>Cultural Orgin</p>
+                    <p>{{item.cultural_origin}}</p>
+                </div>
+
+                <mat-divider></mat-divider>
+            </div>
+        </div>
+
+        <div class="recommendation-group" *ngIf="recommendation.inspirations.length>0">
+            <h3>
+                Inspirations
+            </h3>
+            <div *ngFor=" let item of recommendation.inspirations">
+                <div class="recommendation-item">
+                    <p>Inspiration</p>
+                    <p>{{item.title}}</p>
+                </div>
+
+                <div class="recommendation-item">
+                    <p>Description</p>
+                    <p>{{item.description}}</p>
+                </div>
+
+                <div class="recommendation-item">
+                    <p>Type</p>
+                    <p>{{item.inspiration_type}}</p>
+                </div>
+
+                <mat-divider></mat-divider>
+            </div>
+        </div>
+    </div>
+
+</mat-dialog-content>

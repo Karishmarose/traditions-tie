@@ -1,0 +1,39 @@
+
+
+.container {
+  margin: 0 auto;
+  padding: 20px;
+ 
+}
+
+.input-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  >input{
+    min-width: 200px;
+
+  }
+}
+
+.task-list{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+
+  input[type="checkbox"] {
+    margin-right: 10px;
+  }
+}
+
+
+#ignismyModal {
+  .modal-header {
+    border: 0px;
+  }
+}

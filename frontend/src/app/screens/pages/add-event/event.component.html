@@ -1,0 +1,211 @@
+<section *ngIf="!themePage&&!submitPage">
+  <form [formGroup]="eventForm" (ngSubmit)="goToThemePage()">
+    <mat-card class="event-card">
+      <mat-card-content class="content">
+
+        <div class="event-details">
+          <h3>Event Details</h3>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Event Type</mat-label>
+            <mat-select placeholder="select an event" formControlName="eventType">
+              <mat-option *ngFor="let event of events" [value]="event">
+                {{ event }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="date-picker">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" [matDatepickerFilter]="dateFilter" formControlName="eventDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Event Location</mat-label>
+            <input matInput placeholder="event location" formControlName="eventLocation">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Guest Count</mat-label>
+            <input type="number" matInput placeholder="guest count" formControlName="guestCount">
+            <mat-error *ngIf="fieldHasError('guestCount')">
+              {{ getErrorMessage("guestCount") }}
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field *ngIf="coordinatorList$|async as coordinatorList" appearance="outline">
+            <mat-label>Event Coordinator</mat-label>
+            <mat-select placeholder="select an event" formControlName="eventCoordinator">
+              <mat-option *ngFor="let coordinator of coordinatorList" [value]="coordinator">
+                {{ coordinator.first_name }} {{ coordinator.last_name }} ({{ coordinator.department }})
+              </mat-option> </mat-select>
+          </mat-form-field>
+
+          <button mat-button color="primary" [disabled]="!eventForm.valid" class="save-button">Next</button>
+        </div>
+
+
+        <div class="wedding-details" formArrayName="wedding" *ngIf="eventForm.controls['eventType'].value==='Wedding'">
+          <div class="event-details" formGroupName="0">
+            <h3>Bride Info</h3>
+
+            <mat-form-field appearance="outline">
+              <mat-label> Frist Name</mat-label>
+              <input matInput placeholder="first name" formControlName="first_name">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label> Last Name</mat-label>
+              <input matInput placeholder="last name" formControlName="last_name">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="email" formControlName="email_id">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Mobile</mat-label>
+              <input matInput placeholder="mobile" formControlName="mobile">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Nationality</mat-label>
+              <input matInput placeholder="nationality" formControlName="nationality">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Cutlural Orgin</mat-label>
+              <input matInput placeholder="cultural orgin" formControlName="cultural_orgin">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Relegion</mat-label>
+              <input matInput placeholder="relegion" formControlName="relegion">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Prefered Langauge</mat-label>
+              <input matInput placeholder="prefered language" formControlName="langauge">
+            </mat-form-field>
+          </div>
+
+          <div class="event-details" formGroupName="1">
+            <h3>Groom Info</h3>
+
+            <mat-form-field appearance="outline">
+              <mat-label> Frist Name</mat-label>
+              <input matInput placeholder="first name" formControlName="first_name">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label> Last Name</mat-label>
+              <input matInput placeholder="last name" formControlName="last_name">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="email" formControlName="email_id">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Mobile</mat-label>
+              <input matInput placeholder="mobile" formControlName="mobile">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Nationality</mat-label>
+              <input matInput placeholder="nationality" formControlName="nationality">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Cutlural Orgin</mat-label>
+              <input matInput placeholder="cultural orgin" formControlName="cultural_orgin">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Relegion</mat-label>
+              <input matInput placeholder="relegion" formControlName="relegion">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Prefered Langauge</mat-label>
+              <input matInput placeholder="prefered language" formControlName="langauge">
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </form>
+</section>
+
+<section *ngIf="themePage&&!submitPage" [formGroup]="eventForm">
+  <mat-card class="select-theme-card">
+    <h3>Select Theme</h3>
+    <mat-card-content>
+      <ng-container *ngIf="themeList$|async as themeList">
+        <mat-radio-group formControlName="theme">
+          <div *ngFor="let theme of themeList; let i = index">
+            <div class="theme-set">
+              <mat-card>
+                <mat-card-content>
+                  <mat-radio-button [value]="theme"></mat-radio-button>
+                  <h4>{{theme.theme_name}}</h4>
+                  <p>{{theme.description}}</p>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </div>
+        </mat-radio-group>
+
+        <div class="button-group">
+          <button mat-stroked-button class="back-button" (click)="goToAddEventPage()">Back</button> <button
+            color="primary" [disabled]="!eventForm.valid" class="submit-button"
+            (click)="gotToSubmitPage()">Next</button>
+        </div>
+      </ng-container>
+    </mat-card-content>
+  </mat-card>
+</section>
+
+<section *ngIf="!themePage&&submitPage">
+  <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+
+    <mat-card *ngIf="vendorTypes$|async as vendorTypes">
+      <mat-card-content>
+        <ng-container *ngIf="vendorTypes">
+          <div *ngFor="let vendorType of vendorTypes">
+            <h2>{{vendorType.vendor_type}}</h2>
+            <div class="vendor-details-list">
+              <mat-radio-group formControlName="vendors">
+
+                <div class="vendor-details-box">
+                  <div *ngFor="let vendor of vendorType.vendors">
+                    <mat-card>
+                      <mat-card-content>
+                        <mat-radio-button [value]="vendor"> </mat-radio-button>
+                        <h3>{{vendor.vendor_name}}</h3>
+                        <p class="title">{{vendor.vendor_type}}</p>
+                        <p class="description">{{vendor.website}}</p>
+                        <p>{{vendor.mobile}}</p>
+                        <p class="reviews"><a (click)="viewReviewsModal(vendor.reviews)">Reviews</a></p>
+                      </mat-card-content>
+                    </mat-card>
+                  </div>
+                </div>
+
+              </mat-radio-group>
+            </div>
+          </div>
+        </ng-container>
+
+        <div class="button-group">
+          <button mat-stroked-button class="back-button" (click)="goToThemePage()">Back</button> <button color="primary"
+            [disabled]="!eventForm.valid" class="submit-button">Submit</button>
+        </div>
+      </mat-card-content></mat-card>
+  </form>
+</section>

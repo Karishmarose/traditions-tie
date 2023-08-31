@@ -1,0 +1,38 @@
+<section>
+  <div *ngIf="currentUser$|async as currentUser">
+    <p>Ready to Create Your Magical Event?
+    </p>
+    <p>Leave the planning, organization, and stress to our expert team, and take the first step toward an unforgettable
+      event experience. Don’t wait – let the enchanting world of TraditionsTie make your event extraordinary!</p>
+
+    <button *ngIf="!currentUser.isPaid" mat-raised-button color="primary" (click)="payNow(currentUser)">Purchase Now</button>
+  </div>
+</section>
+ 
+<section>
+  <div>
+    <p>A Kaleidoscope of Love: Multicultural Weddings
+    </p>
+    <p>Celebrate love's vibrant tapestry as cultures intertwine, creating a breathtaking spectacle of joy and unity in
+      multicultural weddings</p>
+  </div>
+</section>
+
+<section>
+  <div>
+    <p>Birthday Bliss: Celebrate Life's Joyful Milestones
+    </p>
+    <p>Unleash the magic of cherished moments with a birthday celebration that radiates happiness and marks the
+      beginning of a new and exciting chapter</p>
+  </div>
+</section>
+
+<section>
+  <div>
+    <p>Elevate Your Celebrations: Crafting Lifelong Memories
+    </p>
+    <p>Elevate your celebrations to new heights with our expert touch and unwavering dedication. From crafting immersive
+      themes to orchestrating seamless logistics, we are your partners in creating moments that last a lifetime. Join us
+      as we set the stage for joy, connection, and shared memories in every celebration we undertake.</p>
+  </div>
+</section>

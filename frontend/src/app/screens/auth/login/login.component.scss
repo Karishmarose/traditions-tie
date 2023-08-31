@@ -1,0 +1,29 @@
+
+::ng-deep{
+  .form-field {
+    .mat-form-field-underline {
+      background-color: white; /* Set the desired background color */
+    }
+  }
+}
+
+
+.login-body {
+  padding: 16px;
+  color: white;
+}
+
+.login-header-wrapper {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.navigation-link {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.login-button {
+  color: black !important;
+  background-color: lightblue !important;
+}

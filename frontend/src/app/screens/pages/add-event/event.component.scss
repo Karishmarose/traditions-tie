@@ -1,0 +1,173 @@
+:host {
+  .date-picker {
+    ::ng-deep .mat-form-field-infix {
+      display: flex;
+    }
+  }
+}
+
+.event-card {
+  margin: 20px;
+  background-color: #f2f2f2;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+  }
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.event-details {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+
+  >mat-form-field {
+    margin-bottom: 20px;
+  }
+}
+
+.wedding-details {
+  display: flex;
+  flex-direction: row;
+}
+
+.submit-button,
+.back-button,
+.save-button {
+  background-color: #931188;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+  min-width: 400px;
+  margin: 20px;
+
+  &[disabled] {
+    background-color: #c7bec7;
+    cursor: not-allowed;
+  }
+}
+
+.back-button {
+  background: none;
+  color: black;
+  outline: auto;
+  outline-color: grey;
+}
+
+.select-theme-card {
+
+  mat-radio-group,
+  mat-card-content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.theme-set {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  @media (max-width: 599px) {
+    flex-direction: column;
+  }
+
+  mat-card {
+    flex: 1;
+    padding: 20px;
+    min-width: 200px;
+    max-width: 400px;
+    min-height: 200px;
+    margin: 20px;
+    border-radius: 20px;
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    ;
+  }
+
+  mat-radio-button {
+    margin-bottom: 10px;
+  }
+
+  h4 {
+    font-size: 22px;
+    font-weight: 500;
+    color: white;
+    font-family: 'Sofia', sans-serif;
+
+  }
+
+  p {
+    font-size: 18px;
+    color: white;
+    font-family: 'Sofia', sans-serif;
+
+  }
+}
+
+.vendor-details-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+
+  p,
+  h3 {
+    color: white;
+  }
+
+  mat-card {
+    min-width: 400px;
+    max-width: 600px;
+    margin: 20px;
+    text-align: center;
+    font-family: arial;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #903c7af2
+  }
+
+  mat-radio-button {
+    display: flex;
+    cursor: pointer;
+  }
+}
+
+.vendor-details-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.title {
+  color: white;
+  font-size: 16px;
+}
+
+.description {
+  font-size: 14px;
+}
+
+
+.reviews {
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+}

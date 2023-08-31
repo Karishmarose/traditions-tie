@@ -1,0 +1,78 @@
+:host {
+  font-family: 'Sofia', sans-serif;
+  color: white;
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
+  min-height: 400px;
+}
+
+.last-section-height{
+  min-height: 200px;
+}
+
+.text-group {
+  background-color: #903c7af2;
+  display: flex;
+  flex-direction: column;
+  min-width: 50%;
+  justify-content: center;
+  text-align: center;
+  padding: 5px;
+}
+
+.group2-color{
+  background-color: #931188ad;
+}
+
+
+.group3-color{
+  background-color: #5232bc8c;
+}
+
+.group4-color{
+  background-color: #6c2583b5;
+}
+
+.group5-color{
+  background-color: #7c2f82
+}
+
+.heading {
+  font-size: 24px;
+  line-height: 26px;
+  padding-bottom: 10px;
+}
+
+.description {
+  font-size: 20px;
+  line-height: 28px;
+  padding-bottom: 10px;
+}
+
+.image1 {
+  min-width: 50%;
+  background: url('https://www.wallshoppe.com/cdn/shop/products/GraphicFlower_Lavender_design.jpg?v=1615485011');
+  background-size: cover;
+
+}
+
+.image2 {
+  min-width: 50%;
+  background: url('https://thumbs.dreamstime.com/b/asian-wedding-ceremony-beautiful-bride-groom-their-day-151986264.jpg');
+  background-size: cover;
+}
+
+.image3 {
+  min-width: 50%;
+  background: url('https://static.vecteezy.com/system/resources/previews/000/411/770/original/character-illustration-of-people-holding-birthday-party-icons-vector.jpg');
+  background-size: cover;
+}
+
+.image4 {
+  min-width: 50%;
+  background: url('https://image.freepik.com/free-vector/people-wedding-marriage-vector-illustration-flat-set-cartoon-newlyweds-character-romantic-wedding-ceremony-scene-young-bride-groom-dancing-weddings-party-celebration_169479-1122.jpg');
+  background-size: cover;
+}

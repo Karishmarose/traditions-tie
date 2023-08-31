@@ -1,0 +1,52 @@
+<div class="login-body">
+<div class="login-header-wrapper">
+  <h2>Login</h2>
+  <p>Sign in to continue.</p>
+</div>
+<form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+  <mat-form-field  class="d-block mb-2 form-field ">
+    <mat-label>Email</mat-label>
+    <input formControlName="email_id" matInput placeholder="Username" />
+    <mat-error *ngIf="fieldHasError('email_id')">
+      {{ getErrorMessage("email_id") }}
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field  class="d-block mb-2 form-field">
+    <mat-label>Password</mat-label>
+    <input
+      formControlName="password"
+      matInput
+      placeholder="Password"
+      [type]="showPassword ? 'text' : 'password'"
+    />
+    <!-- SHOW AND HIDE PASSWORD -->
+    <button
+      color="white"
+      matSuffix
+      mat-icon-button
+      [attr.aria-label]="showPassword ? 'Hide' : 'Show'"
+      (click)="showPassword = !showPassword"
+      type="button"
+    >
+      <mat-icon>{{ showPassword ? "visibility_off" : "visibility" }}</mat-icon>
+    </button>
+    <!-- SHOW AND HIDE PASSWORD -->
+    <mat-error *ngIf="fieldHasError('password')">
+      {{ getErrorMessage("password") }}
+    </mat-error>
+  </mat-form-field>
+
+  <div class="d-flex justify-content-center">
+    <button
+      class="px-5 login-button"
+      mat-raised-button
+      [disabled]="!loginForm.valid"
+    >
+      Login
+    </button>
+  </div>
+  <div class="navigation-link">
+   <b>Don't have an account? <a [routerLink]="['/auth/register']">Create new account</a></b>
+  </div>
+</form>
+</div>

@@ -1,0 +1,27 @@
+<button mat-icon-button (click)="closeDialog()">
+    <mat-icon>close</mat-icon>
+</button>
+
+<mat-dialog-content id="ignismyModal" class="modal-content">
+    <div class="reviews-box">
+        <h2>
+            Reviews
+        </h2>
+        <div class="reviews-group" *ngIf="reviews&&reviews.length>0;else emptyReviews">
+
+            <div *ngFor=" let item of reviews;let i=index">
+                <div class="reviews-item">
+                    <p>{{i+1}}.</p>
+                    <p>{{item}}</p>
+                </div>
+                <mat-divider></mat-divider>
+            </div>
+        </div>
+    </div>
+
+</mat-dialog-content>
+
+<ng-template #emptyReviews>
+    <div class="no-reviews">
+    No reviews</div>
+</ng-template>

@@ -1,0 +1,68 @@
+<section>
+  <form [formGroup]="profileForm" (ngSubmit)="onFormSubmit()">
+    <mat-card class="profile-card">
+      <mat-card-content class="content">
+
+        <div class="personal-details">
+          <h3>Personal Details</h3>
+
+          <mat-form-field appearance="outline">
+            <mat-label>first name</mat-label>
+            <input matInput placeholder="first name" formControlName="first_name">
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>last name</mat-label>
+            <input matInput placeholder="last name" formControlName="last_name">
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="email" formControlName="email_id">
+            <mat-icon matSuffix>email</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Mobile</mat-label>
+            <input matInput placeholder="mobile" formControlName="mobile_number">
+            <mat-error *ngIf="fieldHasError('mobile')">
+              {{ getErrorMessage("mobile") }}
+            </mat-error>
+            <mat-icon matSuffix>phone</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <div class="address">
+          <h3>Address</h3>
+          <mat-form-field appearance="outline">
+            <mat-label>Address line</mat-label>
+            <input matInput placeholder="address" formControlName="address_line1">
+            <mat-icon matSuffix>location_on</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>city</mat-label>
+            <input matInput placeholder="city" formControlName="city">
+            <mat-icon matSuffix>location_city</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>street</mat-label>
+            <input matInput placeholder="street" formControlName="street">
+            <mat-icon matSuffix>location_searching</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>zip code</mat-label>
+            <input matInput placeholder="zip code" formControlName="zipcode">
+            <mat-icon matSuffix>local_post_office</mat-icon>
+          </mat-form-field>
+
+          <button mat-button color="primary" [disabled]="profileForm.invalid" class="save-button">Save</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </form>
+</section>

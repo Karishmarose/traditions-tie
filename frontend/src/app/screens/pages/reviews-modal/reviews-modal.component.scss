@@ -1,0 +1,64 @@
+#ignismyModal {
+  .modal-header {
+    border: 0px;
+  }
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+
+h3 {
+  font-size: 20px;
+  font-weight: 500;
+  color: dimgray;
+}
+
+h2{
+  font-size: 24px;
+  font-weight: 500;
+  color: #931188;
+}
+
+P {
+  font-size: 16px;
+  font-weight: 400;
+  color: black;
+}
+
+.reviews-box {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 5px;
+}
+
+.reviews-group {
+  margin: 20px;
+  mat-divider{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.reviews-item {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5px;
+
+  p:nth-child(1) {
+    min-width: 20px;
+  }
+  p:nth-child(2) {
+    min-width: 200px;
+  }
+}
+
+:host {
+  button {
+    margin-bottom: 20px;
+  }
+}

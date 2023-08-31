@@ -1,0 +1,23 @@
+<mat-dialog-content id="ignismyModal" class="modal-content">
+  <div class="container">
+    <h2>Check List</h2>
+    <div class="input-section">
+      <input [(ngModel)]="newTask" placeholder="Enter a task" />
+
+      <input [(ngModel)]="taskDeadline" placeholder="Deadline (MM/DD/YYYY)"  [matDatepicker]="picker"
+        [matDatepickerFilter]="dateFilter">
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+
+      <button mat-raised-button color="basic" (click)="addTask()">Save</button>
+      <button mat-raised-button color="basic" (click)="clearTasks()">Clear</button>
+    </div>
+    <div class="task-list">
+      <div *ngFor="let task of tasks; let i = index" class="task-item">
+        <input type="checkbox" [checked]="task.task_status==='completed'" [disabled]="task.task_status==='completed'"
+           (change)="updateCheckList(task)" />
+        <span>{{ task.task_description }}</span>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>

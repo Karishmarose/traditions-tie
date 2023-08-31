@@ -1,0 +1,55 @@
+<mat-dialog-content id="ignismyModal" class="modal-content">
+  <div class="container">
+    <h2>Guest List</h2>
+    <div class="input-section">
+      <form [formGroup]="guestForm" (ngSubmit)="addGuest()">
+        <div class="form-group">
+          <div class="form-item">
+            <mat-form-field>
+              <mat-label>Guest Name</mat-label>
+              <input formControlName="guest_name" matInput placeholder="Enter name" />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Email</mat-label>
+              <input formControlName="email" matInput placeholder="Enter email id" />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Mobile</mat-label>
+              <input formControlName="mobile" matInput placeholder="Enter mobile" />
+            </mat-form-field>
+          </div>
+          <div class="form-item">
+
+            <mat-form-field>
+              <mat-select placeholder="select an status" formControlName="rsvp_status">
+                <mat-option *ngFor="let status of rsvpStatus" [value]="status">
+                  {{ status }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <button mat-raised-button color="basic" [disabled]="guestForm.invalid">Save</button>
+
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="task-list">
+      <div *ngFor="let task of tasks; let i = index" class="task-item">
+        <div>{{ task.guest_name+" - " }}{{task.rsvp_status}}</div>
+
+        <button mat-icon-button color="primary" (click)="toggleEdit(task)">
+          <mat-icon>edit</mat-icon>
+        </button>
+
+        <mat-form-field *ngIf="task?.isEditing">
+          <mat-select *ngIf="task.isEditing" [(ngModel)]="task.rsvp_status" (selectionChange)="saveEditedStatus(task)">
+            <mat-option *ngFor="let status of rsvpStatus" [value]="status">
+              {{ status }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>

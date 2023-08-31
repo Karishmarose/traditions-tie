@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
+
+:host {
+  padding: 0%;
+
+  section:nth-child(1) {
+    background-image: url('https://wallpapercave.com/wp/wp3876140.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    >div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: 'Sofia', sans-serif;
+      color: white;
+      text-align: center;
+      padding: 0 0 0 70px;
+      max-width: 600px;
+
+      >p:nth-child(1) {
+        font-size: 30px;
+        line-height: 30px;
+        padding-bottom: 14px;
+      }
+
+      >p:nth-child(2) {
+        max-width: 400px;
+        line-height: 36px;
+        font-size: 22px;
+        padding-bottom: 20px;
+      }
+
+      >button {
+        display: inline-block;
+        background: rgb(231, 79, 242);
+        padding: 15px;
+        font-family: inherit;
+        font-size: 16px;
+        border: 0;
+        border-radius: 5px;
+      }
+    }
+  }
+
+
+
+  section:nth-child(2) {
+    background-image: url('https://wallpaperset.com/w/full/8/b/1/480111.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    >div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: sofia, sans-serif;
+      color: rgb(36, 61, 61);
+      text-align: center;
+      padding: 120px 0 0 0;
+      max-width: 600px;
+
+      >p:nth-child(1) {
+        font-size: 30px;
+        line-height: 30px;
+        padding-bottom: 14px;
+      }
+
+      >p:nth-child(2) {
+        max-width: 400px;
+        line-height: 36px;
+        font-size: 22px;
+        padding-bottom: 20px;
+      }
+    }
+  }
+
+  section:nth-child(3) {
+    background-image: url('https://themighty.com/wp-content/uploads/2016/12/Ingrid-Snydal.1-001-1280x640.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    >div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: Pacifico, sans-serif;
+      color: rgb(255 179 0);
+      text-align: center;
+      padding: 120px 0 0 0;
+      max-width: 600px;
+      
+
+      >p:nth-child(1) {
+        font-size: 30px;
+        line-height: 30px;
+        padding-bottom: 14px;
+      }
+
+      >p:nth-child(2) {
+        max-width: 400px;
+        line-height: 36px;
+        font-size: 22px;
+        padding-bottom: 20px;
+      }
+    }
+  }
+
+  section:nth-child(4) {
+    background-image: url('https://cdn.wallpapersafari.com/37/78/cR1hJs.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 650px;
+
+    >div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: Bubblegum Sans, sans-serif;
+      color:rgb(197 5 94);
+      text-align: center;
+      padding: 120px 0 0 70px;
+      max-width: 800px;
+      
+
+      >p:nth-child(1) {
+        font-size: 30px;
+        line-height: 30px;
+        padding-bottom: 14px;
+      }
+
+      >p:nth-child(2) {
+        line-height: 36px;
+        font-size: 22px;
+        padding-bottom: 20px;
+      }
+    }
+  }
+
+}
